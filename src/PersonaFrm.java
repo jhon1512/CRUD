@@ -43,6 +43,7 @@ public class PersonaFrm extends javax.swing.JFrame {
         btnInsertar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
         btnconsultar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +107,13 @@ public class PersonaFrm extends javax.swing.JFrame {
             }
         });
 
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,8 +151,10 @@ public class PersonaFrm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnconsultar)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                        .addComponent(btnconsultar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnActualizar)))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +185,8 @@ public class PersonaFrm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertar)
                     .addComponent(btnListar)
-                    .addComponent(btnconsultar))
+                    .addComponent(btnconsultar)
+                    .addComponent(btnActualizar))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -219,6 +230,11 @@ per.insertarPersona(0,txtNombre.getText(),txtApellido.getText(),txtTelefono.getT
     JOptionPane.showMessageDialog(null, lista);
     }//GEN-LAST:event_btnconsultarActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+     Persona per=new Persona ();
+     per.actualizarPersona(0,txtNombre.getText(),txtApellido.getText(),txtTelefono.getText(),txtDirrecion.getText(),Integer.parseInt(txtIdentificacion.getText()));
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,6 +271,7 @@ per.insertarPersona(0,txtNombre.getText(),txtApellido.getText(),txtTelefono.getT
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnconsultar;

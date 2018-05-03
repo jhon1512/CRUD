@@ -41,7 +41,24 @@ public class Persona extends PersonaApp.PersonaPOA {
 
     @Override
     public boolean actualizarPersona(int id, String nombre, String apellido, String telefono, String direccion, int identificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean resultado = false;
+        try {
+            
+            String query = "update persona set nombre='"+nombre+"', apelllido='"+apellido+"', telefono='"+telefono+"', direccion='"+direccion+"', identificacion="+identificacion+"  WHERE identificacion="+identificacion+""; 
+            
+            conex.conexion();
+            Statement st =conex.conex.createStatement();
+            int valor = st.executeUpdate(query);
+            if (valor > 0){
+            resultado =true;
+            }
+                //cerramos los recursos.
+                st.close();
+                conex.conex.close();          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error"+e.getMessage());
+        }
+        return resultado;
     }
 
     @Override
